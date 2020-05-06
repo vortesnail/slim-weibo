@@ -3,8 +3,19 @@ const router = require('koa-router')()
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
     title: 'Hello Koa 2!',
-    message: '你好 Koa 2！',
-    isMe: true
+    isMe: true,
+    blogList: [
+      {
+        id: 1,
+        title: '如何避免加班？'
+      }, {
+        id: 2,
+        title: '如何看待长期加班导致生病这种事？'
+      }, {
+        id: 3,
+        title: '爱情长跑可能吗？'
+      }
+    ]
   })
 })
 
