@@ -1,15 +1,16 @@
 {
-  "name": "slim-weibo",
+  "name": "koa2-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/www",
-    "prd": "cross-env NODE_ENV=production pm2 start bin/www",
-    "test": ""
+    "start": "node bin/www",
+    "dev": "./node_modules/.bin/nodemon bin/www",
+    "prd": "pm2 start bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "ejs": "~2.5.5",
+    "ejs": "~2.3.3",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-convert": "^1.2.0",
@@ -21,7 +22,6 @@
     "koa-views": "^6.2.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
     "nodemon": "^1.19.1"
   }
 }
