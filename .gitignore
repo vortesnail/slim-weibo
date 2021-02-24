@@ -6,4 +6,5 @@ logs
 node_modules
 build
 dist
+dump.rdb
 package-lock.json
