@@ -87,12 +87,12 @@ $(function() {
         e.preventDefault()
         var nickName = $inputNick.val()
         var city = $inputCity.val()
-        var picture = $imgPicture.attr('src')
+        var avatar = $imgPicture.attr('src')
 
         ajax.patch('/api/user/changeInfo', {
             nickName,
             city,
-            picture
+            avatar
         }, function(err, data) {
             if (err) {
                 alert(err)

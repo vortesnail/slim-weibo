@@ -3,7 +3,7 @@
  * @author vortesnail
  */
 
-const { getUserInfo, createUser, deleteUser } = require('../services/user')
+const { getUserInfo, createUser, deleteUser, updateUser } = require('../services/user')
 const { SuccessModel, ErrorModel } = require('../model/ResModel')
 const {
   registerUserNameExistInfo,
@@ -11,6 +11,7 @@ const {
   registerUserNameNotExistInfo,
   loginFailInfo,
   deleteUserFailInfo,
+  changeInfoFailInfo,
 } = require('../model/ErrorInfo')
 const doCrypto = require('../utils/cryp')
 
@@ -81,9 +82,44 @@ async function deleteCurUser(userName) {
   return new ErrorModel(deleteUserFailInfo)
 }
 
+/**
+ * 修改用户信息
+ * @param {object} ctx koa2 ctx
+ * @param {string} nickName 昵称
+ * @param {string} city 城市
+ * @param {string} avatar 头像地址
+ */
+async function changeInfo(ctx, { nickName, city, avatar }) {
+  const { userName } = ctx.session.userInfo
+  if (!nickName) {
+    nickName = userName
+  }
+
+  const result = await updateUser(
+    {
+      newNickName: nickName,
+      newAvatar: avatar,
+      newCity: city
+    },
+    { userName }
+  )
+
+  if (result) {
+    Object.assign(ctx.session.userInfo, {
+      nickName,
+      city,
+      avatar
+    })
+    return new SuccessModel()
+  }
+
+  return new ErrorModel(changeInfoFailInfo)
+}
+
 module.exports = {
   isExist,
   register,
   login,
   deleteCurUser,
+  changeInfo,
 }
