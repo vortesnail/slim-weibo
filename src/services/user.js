@@ -3,7 +3,7 @@
  * @author vortesnail
  */
 
-const User = require('../db/model/User')
+const { User } = require('../db/model/index')
 const { formatUser } = require('./_format')
 
 /**
