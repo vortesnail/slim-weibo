@@ -9,5 +9,6 @@
  */
 
 module.exports = {
-  COOKIE: 'weibo.sid=QyUvHECWxQ-TXa4Yg_QrlZsIj9KzTA4N; weibo.sid.sig=2gR6SDSMNYlNx8yuDhpT6F3fjiU'
+  USER_NAME: 'vortesnail',
+  COOKIE: 'weibo.sid=qTcn7Jq9CVhtq-avQWpf3jbLr1txqeDt; weibo.sid.sig=v07plBN4D-nS7Eo3SAjX16y2DYY'
 }
