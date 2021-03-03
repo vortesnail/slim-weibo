@@ -10,5 +10,7 @@
 
 module.exports = {
   USER_NAME: 'vortesnail',
-  COOKIE: 'weibo.sid=qTcn7Jq9CVhtq-avQWpf3jbLr1txqeDt; weibo.sid.sig=v07plBN4D-nS7Eo3SAjX16y2DYY'
+  COOKIE: 'weibo.sid=qTcn7Jq9CVhtq-avQWpf3jbLr1txqeDt; weibo.sid.sig=v07plBN4D-nS7Eo3SAjX16y2DYY',
+
+  Z_COOKIE: 'weibo.sid=qTcn7Jq9CVhtq-avQWpf3jbLr1txqeDt; weibo.sid.sig=v07plBN4D-nS7Eo3SAjX16y2DYY'
 }
