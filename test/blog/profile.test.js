@@ -4,12 +4,12 @@
  */
 
 const server = require('../server')
-const { USER_NAME, COOKIE } = require('../testUserInfo')
+const { V_USER_NAME, V_COOKIE } = require('../testUserInfo')
 
 it('个人主页加载第一页数据应该成功', async () => {
   const res = await server
-    .get(`/api/profile/loadMore/${USER_NAME}/0`)
-    .set('cookie', COOKIE)
+    .get(`/api/profile/loadMore/${V_USER_NAME}/0`)
+    .set('cookie', V_COOKIE)
 
   expect(res.body.errno).toBe(0)
 
