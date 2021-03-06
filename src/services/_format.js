@@ -69,7 +69,7 @@ function _formatContent(obj) {
  * @param {array|object} list 微博列表或者单个微博对象
  */
 function formatBlog(list) {
-  if (list == null) {
+  if (!list) {
     return list
   }
 
