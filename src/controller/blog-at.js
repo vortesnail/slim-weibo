@@ -3,7 +3,7 @@
  * @author vortesnail
  */
 
-const { getAtRelationCount, getAtUserBlogList } = require('../services/at-relation')
+const { getAtRelationCount, getAtUserBlogList, updateAtRelation } = require('../services/at-relation')
 const { SuccessModel } = require('../model/ResModel')
 const { PAGE_SIZE } = require('../conf/constant')
 
@@ -40,7 +40,19 @@ async function getAtMeBlogList(userId, pageIndex = 0) {
   })
 }
 
+async function markAsRead(userId) {
+  try {
+    await updateAtRelation(
+      { newIsRead: true },
+      { userId, isRead: false }
+    )
+  } catch (ex) {
+    console.error(ex)
+  }
+}
+
 module.exports = {
   getAtMeCount,
   getAtMeBlogList,
+  markAsRead,
 }
