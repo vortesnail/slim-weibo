@@ -3,8 +3,9 @@
  * @author vortesnail
  */
 
-const { getAtRelationCount } = require('../services/at-relation')
+const { getAtRelationCount, getAtUserBlogList } = require('../services/at-relation')
 const { SuccessModel } = require('../model/ResModel')
+const { PAGE_SIZE } = require('../conf/constant')
 
 /**
  * 获取 @ 我的微博数量
@@ -17,6 +18,29 @@ async function getAtMeCount(userId) {
   })
 }
 
+/**
+ * 获取 @ 用户的博客列表
+ * @param {number} userId 用户 Id
+ * @param {number} pageIndex 页码
+ */
+async function getAtMeBlogList(userId, pageIndex = 0) {
+  const result = await getAtUserBlogList({
+    userId,
+    pageIndex,
+    pageSize: PAGE_SIZE
+  })
+  const { count, blogList } = result
+
+  return new SuccessModel({
+    isEmpty: blogList.length === 0,
+    blogList,
+    pageSize: PAGE_SIZE,
+    pageIndex,
+    count,
+  })
+}
+
 module.exports = {
   getAtMeCount,
+  getAtMeBlogList,
 }
